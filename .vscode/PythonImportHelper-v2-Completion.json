@@ -1,0 +1,629 @@
+[
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "pika",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pika",
+        "description": "pika",
+        "detail": "pika",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "dotenv",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "py_eureka_client.eureka_client",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "py_eureka_client.eureka_client",
+        "description": "py_eureka_client.eureka_client",
+        "detail": "py_eureka_client.eureka_client",
+        "documentation": {}
+    },
+    {
+        "label": "signal",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "signal",
+        "description": "signal",
+        "detail": "signal",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "uuid",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "shutil",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "shutil",
+        "description": "shutil",
+        "detail": "shutil",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "UploadFile",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "File",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Form",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "JSONResponse",
+        "importPath": "fastapi.responses",
+        "description": "fastapi.responses",
+        "isExtraImport": true,
+        "detail": "fastapi.responses",
+        "documentation": {}
+    },
+    {
+        "label": "CORSMiddleware",
+        "importPath": "fastapi.middleware.cors",
+        "description": "fastapi.middleware.cors",
+        "isExtraImport": true,
+        "detail": "fastapi.middleware.cors",
+        "documentation": {}
+    },
+    {
+        "label": "StaticFiles",
+        "importPath": "fastapi.staticfiles",
+        "description": "fastapi.staticfiles",
+        "isExtraImport": true,
+        "detail": "fastapi.staticfiles",
+        "documentation": {}
+    },
+    {
+        "label": "create_engine",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Column",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "String",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Text",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "DateTime",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "func",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "declarative_base",
+        "importPath": "sqlalchemy.ext.declarative",
+        "description": "sqlalchemy.ext.declarative",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.ext.declarative",
+        "documentation": {}
+    },
+    {
+        "label": "sessionmaker",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "pymysql",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pymysql",
+        "description": "pymysql",
+        "detail": "pymysql",
+        "documentation": {}
+    },
+    {
+        "label": "system_image_publisher",
+        "importPath": "RabbitMQ.publisher.system_image_publisher",
+        "description": "RabbitMQ.publisher.system_image_publisher",
+        "isExtraImport": true,
+        "detail": "RabbitMQ.publisher.system_image_publisher",
+        "documentation": {}
+    },
+    {
+        "label": "SystemImagePublisher",
+        "kind": 6,
+        "importPath": "RabbitMQ.publisher.system_image_publisher",
+        "description": "RabbitMQ.publisher.system_image_publisher",
+        "peekOfCode": "class SystemImagePublisher:\n    \"\"\"\n    A utility class to handle RabbitMQ connections and publishing messages\n    for the service-system-image application.\n    \"\"\"\n    def __init__(self):\n        \"\"\"Initialize the RabbitMQ connection and channel.\"\"\"\n        self.connection = None\n        self.channel = None\n        self.exchange_name = os.getenv('SERVICE_SYSTEM_IMAGE_EXCHANGE', 'system-image-exchange')",
+        "detail": "RabbitMQ.publisher.system_image_publisher",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "RabbitMQ.publisher.system_image_publisher",
+        "description": "RabbitMQ.publisher.system_image_publisher",
+        "peekOfCode": "logger = logging.getLogger(__name__)\n# Load environment variables\nload_dotenv()\nclass SystemImagePublisher:\n    \"\"\"\n    A utility class to handle RabbitMQ connections and publishing messages\n    for the service-system-image application.\n    \"\"\"\n    def __init__(self):\n        \"\"\"Initialize the RabbitMQ connection and channel.\"\"\"",
+        "detail": "RabbitMQ.publisher.system_image_publisher",
+        "documentation": {}
+    },
+    {
+        "label": "system_image_publisher",
+        "kind": 5,
+        "importPath": "RabbitMQ.publisher.system_image_publisher",
+        "description": "RabbitMQ.publisher.system_image_publisher",
+        "peekOfCode": "system_image_publisher = SystemImagePublisher()",
+        "detail": "RabbitMQ.publisher.system_image_publisher",
+        "documentation": {}
+    },
+    {
+        "label": "get_config",
+        "kind": 2,
+        "importPath": "config.config_client",
+        "description": "config.config_client",
+        "peekOfCode": "def get_config(application_name,url):\n    response = requests.get(f\"{url}/{application_name}/profile\")\n    if response.status_code == 200:\n        return response.json()\n    else:\n        raise Exception(f\"Error fetching config: {response.status_code}\")",
+        "detail": "config.config_client",
+        "documentation": {}
+    },
+    {
+        "label": "init_eureka",
+        "kind": 2,
+        "importPath": "config.eureka_client",
+        "description": "config.eureka_client",
+        "peekOfCode": "def init_eureka(conf):\n    # Get the container name from the environment variable or use a fallback method\n    container_name = os.environ.get('HOSTNAME', 'default-instance')\n    # Use the container name or a unique identifier for the instance ID\n    instance_id = f\"{conf.get('app_name')}-{container_name}\"\n    # Get local IP address for better service discovery\n    import socket\n    try:\n        # This gets the local IP address that would be used to connect to an external server\n        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)",
+        "detail": "config.eureka_client",
+        "documentation": {}
+    },
+    {
+        "label": "deregister_and_exit",
+        "kind": 2,
+        "importPath": "config.eureka_client",
+        "description": "config.eureka_client",
+        "peekOfCode": "def deregister_and_exit(signal, frame):\n    eureka_client.stop()\n    sys.exit(0)\nsignal.signal(signal.SIGINT, deregister_and_exit)\nsignal.signal(signal.SIGTERM, deregister_and_exit)",
+        "detail": "config.eureka_client",
+        "documentation": {}
+    },
+    {
+        "label": "update_env_file",
+        "kind": 2,
+        "importPath": "config.settings",
+        "description": "config.settings",
+        "peekOfCode": "def update_env_file(env_vars):\n    try:\n        env_path = Path(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) / '.env'\n        # Lire le fichier .env existant\n        with open(env_path, 'r') as f:\n            lines = f.readlines()\n        # Créer un dictionnaire des variables existantes\n        env_dict = {}\n        for line in lines:\n            line = line.strip()",
+        "detail": "config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "update_env_vars",
+        "kind": 2,
+        "importPath": "config.settings",
+        "description": "config.settings",
+        "peekOfCode": "def update_env_vars(env_vars):\n    for key, value in env_vars.items():\n        os.environ[key] = str(value)\n    logger.info(\"Variables d'environnement mises à jour en mémoire\")\n# Configuration du serveur de configuration\nCONFIG_SERVER = {\n    'config': {\n        'uri': os.getenv('SERVICE_CONFIG_URI'),\n    }\n}",
+        "detail": "config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "load_config",
+        "kind": 2,
+        "importPath": "config.settings",
+        "description": "config.settings",
+        "peekOfCode": "def load_config():\n    try:\n        # Récupérer la configuration depuis le serveur de configuration\n        CONF = get_config(os.getenv('APP_NAME'), CONFIG_SERVER['config']['uri'])\n        logger.info(\"Configuration récupérée avec succès\")\n        # Extraire les propriétés de la source\n        properties = CONF.get(\"propertySources\")[0].get('source')\n        # Configuration Eureka\n        eureka_conf = {\n            'server': properties.get('eureka.client.service-url.defaultZone'),",
+        "detail": "config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "config.settings",
+        "description": "config.settings",
+        "peekOfCode": "logger = logging.getLogger(__name__)\n# Charger les variables d'environnement\ndotenv.load_dotenv()\n# Fonction pour mettre à jour les variables d'environnement\ndef update_env_file(env_vars):\n    try:\n        env_path = Path(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) / '.env'\n        # Lire le fichier .env existant\n        with open(env_path, 'r') as f:\n            lines = f.readlines()",
+        "detail": "config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CONFIG_SERVER",
+        "kind": 5,
+        "importPath": "config.settings",
+        "description": "config.settings",
+        "peekOfCode": "CONFIG_SERVER = {\n    'config': {\n        'uri': os.getenv('SERVICE_CONFIG_URI'),\n    }\n}\ndef load_config():\n    try:\n        # Récupérer la configuration depuis le serveur de configuration\n        CONF = get_config(os.getenv('APP_NAME'), CONFIG_SERVER['config']['uri'])\n        logger.info(\"Configuration récupérée avec succès\")",
+        "detail": "config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "SystemImage",
+        "kind": 6,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "class SystemImage(Base):\n    __tablename__ = 'system_images'\n    id = Column(Integer, primary_key=True, index=True)\n    name = Column(String(255), nullable=False)\n    os_type = Column(String(255), nullable=False)\n    version = Column(String(255), nullable=False)\n    description = Column(Text, nullable=True)\n    image_path = Column(String(255), nullable=True)\n    created_at = Column(DateTime, default=func.now())\n    updated_at = Column(DateTime, default=func.now(), onupdate=func.now())",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "SystemImageBase",
+        "kind": 6,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "class SystemImageBase(BaseModel):\n    name: str\n    os_type: str\n    version: str\n    description: Optional[str] = None\nclass SystemImageCreate(SystemImageBase):\n    pass\nclass SystemImageUpdate(SystemImageBase):\n    name: Optional[str] = None\n    os_type: Optional[str] = None",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "SystemImageCreate",
+        "kind": 6,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "class SystemImageCreate(SystemImageBase):\n    pass\nclass SystemImageUpdate(SystemImageBase):\n    name: Optional[str] = None\n    os_type: Optional[str] = None\n    version: Optional[str] = None\nclass SystemImageResponse(SystemImageBase):\n    id: int\n    image_path: Optional[str] = None\n    created_at: datetime",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "SystemImageUpdate",
+        "kind": 6,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "class SystemImageUpdate(SystemImageBase):\n    name: Optional[str] = None\n    os_type: Optional[str] = None\n    version: Optional[str] = None\nclass SystemImageResponse(SystemImageBase):\n    id: int\n    image_path: Optional[str] = None\n    created_at: datetime\n    updated_at: datetime\n    class Config:",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "SystemImageResponse",
+        "kind": 6,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "class SystemImageResponse(SystemImageBase):\n    id: int\n    image_path: Optional[str] = None\n    created_at: datetime\n    updated_at: datetime\n    class Config:\n        orm_mode = True\n# Monter les fichiers statiques\napp.mount(\"/static\", StaticFiles(directory=\"static\"), name=\"static\")\n# Définir les routes API",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "shutdown_event",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def shutdown_event():\n    system_image_publisher.close()\n    print(\"Closed RabbitMQ connection\")\n# Définir le chemin de stockage des images\nIMAGE_UPLOAD_FOLDER = os.path.join('static', 'img', 'system')\n# Fonction pour s'assurer que le dossier de stockage existe\ndef ensure_upload_folder_exists():\n    os.makedirs(IMAGE_UPLOAD_FOLDER, exist_ok=True)\n# Fonction pour gérer l'upload d'image\ndef handle_image_upload(file: UploadFile) -> str:",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "ensure_upload_folder_exists",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def ensure_upload_folder_exists():\n    os.makedirs(IMAGE_UPLOAD_FOLDER, exist_ok=True)\n# Fonction pour gérer l'upload d'image\ndef handle_image_upload(file: UploadFile) -> str:\n    if file and file.filename:\n        # Générer un nom de fichier unique\n        filename = file.filename\n        # Ajouter un UUID pour éviter les collisions de noms\n        unique_filename = f\"{uuid.uuid4().hex}_{filename}\"\n        # S'assurer que le dossier existe",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "handle_image_upload",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def handle_image_upload(file: UploadFile) -> str:\n    if file and file.filename:\n        # Générer un nom de fichier unique\n        filename = file.filename\n        # Ajouter un UUID pour éviter les collisions de noms\n        unique_filename = f\"{uuid.uuid4().hex}_{filename}\"\n        # S'assurer que le dossier existe\n        ensure_upload_folder_exists()\n        # Chemin complet pour sauvegarder le fichier\n        file_path = os.path.join(IMAGE_UPLOAD_FOLDER, unique_filename)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "delete_image_file",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def delete_image_file(image_path: str) -> None:\n    if image_path and os.path.exists(image_path):\n        os.remove(image_path)\n# Définir le modèle de données SQLAlchemy\nclass SystemImage(Base):\n    __tablename__ = 'system_images'\n    id = Column(Integer, primary_key=True, index=True)\n    name = Column(String(255), nullable=False)\n    os_type = Column(String(255), nullable=False)\n    version = Column(String(255), nullable=False)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "get_db",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def get_db():\n    db = SessionLocal()\n    try:\n        yield db\n    finally:\n        db.close()\n# Modèles Pydantic pour la validation des données\nclass SystemImageBase(BaseModel):\n    name: str\n    os_type: str",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "create_tables",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def create_tables():\n    Base.metadata.create_all(bind=engine)\n    print(\"Tables créées avec succès.\")\nif __name__ == \"__main__\":\n    import uvicorn\n    # Créer les tables au démarrage\n    create_tables()\n    # Démarrer le serveur\n    uvicorn.run(\"app:app\", host=\"0.0.0.0\", port=int(os.getenv('APP_PORT', 5001)), reload=True)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "DATABASE_URL",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "DATABASE_URL = f\"mysql+pymysql://{os.getenv('MYSQL_USER')}:{os.getenv('MYSQL_PASSWORD')}@{os.getenv('MYSQL_HOST')}:{os.getenv('MYSQL_PORT')}/{os.getenv('MYSQL_DB')}\"\n# Créer le moteur SQLAlchemy\nengine = create_engine(DATABASE_URL)\nSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)\nBase = declarative_base()\n# Initialiser l'application FastAPI\napp = FastAPI(\n    title=\"System Image API\",\n    description=\"API pour gérer les images système\",\n    version=\"1.0.0\",",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "engine",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "engine = create_engine(DATABASE_URL)\nSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)\nBase = declarative_base()\n# Initialiser l'application FastAPI\napp = FastAPI(\n    title=\"System Image API\",\n    description=\"API pour gérer les images système\",\n    version=\"1.0.0\",\n    docs_url=\"/swagger\"\n)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "SessionLocal",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)\nBase = declarative_base()\n# Initialiser l'application FastAPI\napp = FastAPI(\n    title=\"System Image API\",\n    description=\"API pour gérer les images système\",\n    version=\"1.0.0\",\n    docs_url=\"/swagger\"\n)\n# Ajouter le middleware CORS",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "Base = declarative_base()\n# Initialiser l'application FastAPI\napp = FastAPI(\n    title=\"System Image API\",\n    description=\"API pour gérer les images système\",\n    version=\"1.0.0\",\n    docs_url=\"/swagger\"\n)\n# Ajouter le middleware CORS\napp.add_middleware(",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app = FastAPI(\n    title=\"System Image API\",\n    description=\"API pour gérer les images système\",\n    version=\"1.0.0\",\n    docs_url=\"/swagger\"\n)\n# Ajouter le middleware CORS\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=[\"*\"],",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "IMAGE_UPLOAD_FOLDER",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "IMAGE_UPLOAD_FOLDER = os.path.join('static', 'img', 'system')\n# Fonction pour s'assurer que le dossier de stockage existe\ndef ensure_upload_folder_exists():\n    os.makedirs(IMAGE_UPLOAD_FOLDER, exist_ok=True)\n# Fonction pour gérer l'upload d'image\ndef handle_image_upload(file: UploadFile) -> str:\n    if file and file.filename:\n        # Générer un nom de fichier unique\n        filename = file.filename\n        # Ajouter un UUID pour éviter les collisions de noms",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "init_database",
+        "kind": 2,
+        "importPath": "run",
+        "description": "run",
+        "peekOfCode": "def init_database():\n    try:\n        logger.info(\"Initialisation de la base de données...\")\n        # Récupérer les informations de connexion depuis les variables d'environnement\n        mysql_host = os.getenv('MYSQL_HOST')\n        mysql_port = int(os.getenv('MYSQL_PORT'))\n        mysql_user = os.getenv('MYSQL_USER')\n        mysql_password = os.getenv('MYSQL_PASSWORD')\n        mysql_db = os.getenv('MYSQL_DB')\n        logger.info(f\"Connexion à MySQL: {mysql_host}:{mysql_port} avec l'utilisateur {mysql_user}\")",
+        "detail": "run",
+        "documentation": {}
+    },
+    {
+        "label": "seed_database",
+        "kind": 2,
+        "importPath": "run",
+        "description": "run",
+        "peekOfCode": "def seed_database():\n    try:\n        logger.info(\"Ajout des données de test...\")\n        from app import SessionLocal, SystemImage\n        from sqlalchemy.orm import Session\n        # Données de test\n        test_images = [\n            {\n                'name': 'Ubuntu 22.04 LTS',\n                'os_type': 'ubuntu-22.04',",
+        "detail": "run",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "run",
+        "description": "run",
+        "peekOfCode": "logger = logging.getLogger(__name__)\n# Charger les variables d'environnement avant d'importer les autres modules\ndotenv.load_dotenv()\n# Importer et exécuter les configurations depuis settings.py si disponible\nlogger.info(\"Chargement des configurations...\")\ntry:\n    from config import settings\n    logger.info(\"Configurations chargées avec succès\")\nexcept ImportError:\n    logger.warning(\"Module config.settings non trouvé, utilisation des variables d'environnement par défaut\")",
+        "detail": "run",
+        "documentation": {}
+    }
+]
