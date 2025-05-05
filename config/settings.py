@@ -7,7 +7,6 @@ import logging
 import os
 import dotenv
 import sys
-import logging
 from pathlib import Path
 from .config_client import get_config
 from .eureka_client import init_eureka
@@ -56,18 +55,12 @@ def update_env_vars(env_vars):
         os.environ[key] = str(value)
     logger.info("Variables d'environnement mises à jour en mémoire")
 
-# Configuration du serveur de configuration
-CONFIG_SERVER = {
-    'config': {
-        'uri': os.getenv('SERVICE_CONFIG_URI'),
-    }
-}
 
 def load_config():
     try:
         # Récupérer la configuration depuis le serveur de configuration
-        CONF = get_config(os.getenv('APP_NAME'), CONFIG_SERVER['config']['uri'])
-        logger.info("Configuration récupérée avec succès")
+        CONF = get_config(os.getenv('APP_NAME'), os.getenv('SERVICE_CONFIG_URI'))
+        logger.info("Configuration récupérée avec succès CLOUD-CONF")
         
         # Extraire les propriétés de la source
         properties = CONF.get("propertySources")[0].get('source')
@@ -81,6 +74,7 @@ def load_config():
         logger.info(f"Configuration Eureka: {eureka_conf}")
         
         # Configuration RabbitMQ
+        logger.info(f"Configuration RabbitMQ: {properties.get('spring.rabbitmq.host')}")
         RABBITMQ = {
             'host': properties.get('spring.rabbitmq.host'),
             'port': properties.get('spring.rabbitmq.port', '5672'),
@@ -130,7 +124,7 @@ def load_config():
         update_env_file(env_updates)
         
         # Initialiser le client Eureka
-        init_eureka(eureka_conf)
+        init_eureka()
         
         return CONF, eureka_conf, RABBITMQ, MYSQL
     
