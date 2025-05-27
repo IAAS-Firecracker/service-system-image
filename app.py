@@ -9,6 +9,7 @@ from config.settings import load_config
 import sys
 from database import init_database, create_tables, seed_database
 from routes.route_system_image import router as system_image_router
+from fastapi.staticfiles import StaticFiles
 
 
 # Charger les variables d'environnement depuis le fichier .env
@@ -70,7 +71,8 @@ async def shutdown_event():
     print("Closed RabbitMQ connection")
 
 
-
+# Monter les fichiers statiques
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
 @app.get("/health", tags=["health"])

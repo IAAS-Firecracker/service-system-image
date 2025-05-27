@@ -13,6 +13,7 @@ from RabbitMQ.publisher.system_image_publisher import system_image_publisher
 from datetime import datetime
 from dependencies import get_db, StandardResponse
 from fastapi.responses import JSONResponse
+from fastapi import Request
 
 
 router = APIRouter(
@@ -56,19 +57,39 @@ def delete_image_file(image_path: str) -> None:
         os.remove(image_path)
 
 
-# Monter les fichiers statiques
-router.mount("/static", StaticFiles(directory="static"), name="static")
 
-# Définir les routes API
+
 @router.get("/", response_model=StandardResponse)
-async def list_system_images(db: Session = Depends(get_db)):
-    """Liste toutes les images système"""
+async def list_system_images(request: Request, db: Session = Depends(get_db)):
+    """Liste toutes les images système avec leurs URLs complètes"""
     try:
         system_images = db.query(SystemImage).all()
-        return StandardResponse(statusCode=200, message="Images système récupérées avec succès", data={"system_images": [system_image.to_dict() for system_image in system_images]})
+        
+        # Construire l'URL de base
+        base_url = str(request.base_url).rstrip('/')
+        
+        # Mapper les images avec leur URL complète
+        images_with_urls = []
+        for image in system_images:
+            image_data = image.to_dict()
+            # Supposons que 'image_path' est le champ contenant le chemin relatif de l'image
+            if 'image_path' in image_data and image_data['image_path']:
+                image_data['image_url'] = f"{base_url}/{image_data['image_path']}"
+            else:
+                image_data['image_url'] = None
+            images_with_urls.append(image_data)
+            
+        return StandardResponse(
+            statusCode=200,
+            message="Images système récupérées avec succès",
+            data={"system_images": images_with_urls}
+        )
     except Exception as e:
-        return StandardResponse(statusCode=500, message=f"Erreur lors de la récupération des images système: {str(e)}", data={})
-
+        return StandardResponse(
+            statusCode=500,
+            message=f"Erreur lors de la récupération des images système: {str(e)}",
+            data={}
+        )
 
 
 # ... (autres imports existants)
