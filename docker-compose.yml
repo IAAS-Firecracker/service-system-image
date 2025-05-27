@@ -9,6 +9,8 @@ services:
       - .:/app
     environment:
       - PYTHONUNBUFFERED=1
+    depends_on:
+      - mysql_db_service_system_image
     networks:
       - iaas-firecracker-network
 
