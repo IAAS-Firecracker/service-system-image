@@ -11,7 +11,8 @@ from models.model_system_image import SystemImage, SystemImageResponse
 from dotenv import load_dotenv
 from RabbitMQ.publisher.system_image_publisher import system_image_publisher
 from datetime import datetime
-from dependencies import get_db
+from dependencies import get_db, StandardResponse
+from fastapi.responses import JSONResponse
 
 
 router = APIRouter(
@@ -59,28 +60,34 @@ def delete_image_file(image_path: str) -> None:
 router.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Définir les routes API
-@router.get("/system-images/", response_model=List[SystemImageResponse])
+@router.get("/", response_model=StandardResponse)
 async def list_system_images(db: Session = Depends(get_db)):
     """Liste toutes les images système"""
-    system_images = db.query(SystemImage).all()
-    return system_images
+    try:
+        system_images = db.query(SystemImage).all()
+        return StandardResponse(statusCode=200, message="Images système récupérées avec succès", data={"system_images": [system_image.to_dict() for system_image in system_images]})
+    except Exception as e:
+        return StandardResponse(statusCode=500, message=f"Erreur lors de la récupération des images système: {str(e)}", data={})
 
 
 
 # ... (autres imports existants)
 
-@router.post("/system-images/", 
-            response_model=SystemImageResponse, 
-            status_code=status.HTTP_201_CREATED,
+@router.post("/", 
+            response_model=StandardResponse,
             summary="Créer une nouvelle image système",
             description="Crée une nouvelle image système avec les détails fournis et une image optionnelle",
-            response_description="L'image système créée")
+            response_description="L'image système créée",
+            # Important pour le bon fonctionnement de l'upload de fichiers
+            response_model_exclude_none=True,
+            # Forcer le type de contenu à multipart/form-data
+            response_class=JSONResponse)
 async def create_system_image(
     name: str = Form(..., description="Nom de l'image système"),
     os_type: str = Form(..., description="Type de système d'exploitation (ex: ubuntu-22.04)"),
     version: str = Form(..., description="Version du système d'exploitation"),
     description: Optional[str] = Form(None, description="Description de l'image système"),
-    image: Optional[UploadFile] = File(None, description="Fichier image optionnel à télécharger (PNG, JPG, JPEG)"),
+    image: UploadFile = File(None, description="Fichier image optionnel à télécharger (PNG, JPG, JPEG)"),
     db: Session = Depends(get_db)
 ):
     """
@@ -92,19 +99,28 @@ async def create_system_image(
     - **description**: Description optionnelle de l'image
     - **image**: Fichier image optionnel (PNG, JPG, JPEG)
     """
-    # Gérer l'upload d'image
+        # Gérer l'upload d'image
     image_path = None
     if image and image.filename:
         # Vérifier le type de fichier
         allowed_extensions = {".png", ".jpg", ".jpeg"}
         file_extension = os.path.splitext(image.filename)[1].lower()
         if file_extension not in allowed_extensions:
-            raise HTTPException(
-                status_code=400, 
-                detail=f"Type de fichier non pris en charge. Utilisez un fichier {', '.join(allowed_extensions)}"
+            raise StandardResponse(
+                statusCode=400, 
+                message=f"Type de fichier non pris en charge. Utilisez un fichier {', '.join(allowed_extensions)}",
+                data={}
             )
         
-        image_path = handle_image_upload(image)
+        # Sauvegarder l'image
+        try:
+            image_path = handle_image_upload(image)
+        except Exception as e:
+            raise StandardResponse(
+                statusCode=400,
+                message=f"Erreur lors de l'enregistrement de l'image: {str(e)}",
+                data={}
+            )
     
     # Créer l'objet SystemImage
     system_image = SystemImage(
@@ -131,34 +147,46 @@ async def create_system_image(
         }
         system_image_publisher.publish_system_image_event('create', system_image_dict)
         
-        return system_image
+        return StandardResponse(
+            statusCode=201,
+            message="Image système créée avec succès",
+            data=system_image_dict
+        )
     except Exception as e:
         # En cas d'erreur, supprimer l'image si elle a été uploadée
         if image_path:
             delete_image_file(image_path)
         db.rollback()
-        raise HTTPException(status_code=400, detail=str(e))
+        raise StandardResponse(statusCode=400, message=str(e), data={})
 
-@router.get("/system-images/{id}", response_model=SystemImageResponse)
+
+
+@router.get("/{id}", response_model=StandardResponse)
 async def get_system_image(id: int, db: Session = Depends(get_db)):
     """Obtient une image système par son ID"""
     system_image = db.query(SystemImage).filter(SystemImage.id == id).first()
     if system_image is None:
-        raise HTTPException(status_code=404, detail="Image système non trouvée")
-    return system_image
+        return StandardResponse(statusCode=404, message="Image système non trouvée", data={})
+    return StandardResponse(
+        statusCode=200,
+        message="Image système récupérée avec succès",
+        data=system_image.to_dict()
+    )
 
-@router.put("/system-images/{id}", 
-            response_model=SystemImageResponse,
+@router.put("/{id}", 
+            response_model=StandardResponse,
             summary="Mettre à jour une image système",
             description="Met à jour les détails d'une image système existante et/ou son image",
-            response_description="L'image système mise à jour")
+            response_description="L'image système mise à jour",
+            response_model_exclude_none=True,
+            response_class=JSONResponse)
 async def update_system_image(
     id: int = Path(..., description="ID de l'image système à mettre à jour"),
     name: Optional[str] = Form(None, description="Nouveau nom de l'image système"),
-    os_type: Optional[str] = Form(None, description="Nouveau type de système d'exploitation"),
+    os_type: Optional[str] = Form(None, description="Nouveau type de système d'exploitation (ex: ubuntu-22.04)"),
     version: Optional[str] = Form(None, description="Nouvelle version du système"),
     description: Optional[str] = Form(None, description="Nouvelle description"),
-    image: Optional[UploadFile] = File(None, description="Nouvelle image (optionnelle)"),
+    image: UploadFile = File(None, description="Nouvelle image (optionnelle)"),
     db: Session = Depends(get_db)
 ):
     """
@@ -173,7 +201,7 @@ async def update_system_image(
     """
     system_image = db.query(SystemImage).filter(SystemImage.id == id).first()
     if system_image is None:
-        raise HTTPException(status_code=404, detail="Image système non trouvée")
+        return StandardResponse(statusCode=404, message="Image système non trouvée", data={})
     
     # Gérer l'upload d'image
     old_image_path = system_image.image_path
@@ -184,9 +212,10 @@ async def update_system_image(
         allowed_extensions = {".png", ".jpg", ".jpeg"}
         file_extension = os.path.splitext(image.filename)[1].lower()
         if file_extension not in allowed_extensions:
-            raise HTTPException(
-                status_code=400, 
-                detail=f"Type de fichier non pris en charge. Utilisez un fichier {', '.join(allowed_extensions)}"
+            return StandardResponse(
+                statusCode=400, 
+                message=f"Type de fichier non pris en charge. Utilisez un fichier {', '.join(allowed_extensions)}",
+                data={}
             )
             
         new_image_path = handle_image_upload(image)
@@ -228,20 +257,24 @@ async def update_system_image(
         }
         system_image_publisher.publish_system_image_event('update', system_image_dict)
         
-        return system_image
+        return StandardResponse(
+            statusCode=200,
+            message="Image système mise à jour avec succès",
+            data=system_image_dict
+        )
     except Exception as e:
         # En cas d'erreur, si une nouvelle image a été uploadée, la supprimer
         if new_image_path != old_image_path:
             delete_image_file(new_image_path)
         db.rollback()
-        raise HTTPException(status_code=400, detail=str(e))
+        return StandardResponse(statusCode=400, message=str(e), data={})
 
-@router.delete("/system-images/{id}", status_code=status.HTTP_200_OK)
+@router.delete("/{id}", response_model=StandardResponse, status_code=status.HTTP_200_OK)
 async def delete_system_image(id: int, db: Session = Depends(get_db)):
     """Supprime une image système"""
     system_image = db.query(SystemImage).filter(SystemImage.id == id).first()
     if system_image is None:
-        raise HTTPException(status_code=404, detail="Image système non trouvée")
+        return StandardResponse(statusCode=404, message="Image système non trouvée", data={})
     
     # Sauvegarder le chemin de l'image pour la supprimer après
     image_path = system_image.image_path
@@ -268,19 +301,19 @@ async def delete_system_image(id: int, db: Session = Depends(get_db)):
         if image_path:
             delete_image_file(image_path)
             
-        return {"message": "Image système supprimée avec succès"}
+        return StandardResponse(statusCode=200, message="Image système supprimée avec succès", data={})
     except Exception as e:
         db.rollback()
-        raise HTTPException(status_code=400, detail=str(e))
+        return StandardResponse(statusCode=400, message=str(e), data={})
 
-@router.get("/system-images/search/{name}", response_model=List[SystemImageResponse])
+@router.get("/search/{name}", response_model=StandardResponse)
 async def search_system_images(name: str, db: Session = Depends(get_db)):
     """Recherche des images système par nom"""
     system_images = db.query(SystemImage).filter(SystemImage.name.like(f"%{name}%")).all()
-    return system_images
+    return StandardResponse(statusCode=200, message="Images système trouvées", data={"system_images": [system_image.to_dict() for system_image in system_images]})
 
-@router.get("/system-images/os-type/{os_type}", response_model=List[SystemImageResponse])
+@router.get("/os-type/{os_type}", response_model=StandardResponse)
 async def get_system_images_by_os_type(os_type: str, db: Session = Depends(get_db)):
     """Obtient les images système par type de système d'exploitation"""
     system_images = db.query(SystemImage).filter(SystemImage.os_type == os_type).all()
-    return system_images
+    return StandardResponse(statusCode=200, message="Images système trouvées", data={"system_images": [system_image.to_dict() for system_image in system_images]})
