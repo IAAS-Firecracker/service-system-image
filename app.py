@@ -90,16 +90,16 @@ if __name__ == '__main__':
     app_port = int(os.getenv('APP_PORT', 5001))
     logger.info(f"Port de l'application configuré: {app_port}")
     
-    # Initialiser la base de données
-    if init_database():
-        create_tables()
-        # Ajouter des données de test
-        seed_database()
+    # # Initialiser la base de données
+    # if init_database():
+    #     create_tables()
+    #     # Ajouter des données de test
+    #     seed_database()
     
         # Démarrer l'application FastAPI avec uvicorn
-        import uvicorn
-        logger.info(f"Démarrage de l'application FastAPI sur le port {app_port}...")
-        uvicorn.run("app:app", host="0.0.0.0", port=app_port, reload=True)
-    else:
-        logger.error("Impossible de démarrer l'application en raison d'erreurs d'initialisation.")
-        sys.exit(1)
+    import uvicorn
+    logger.info(f"Démarrage de l'application FastAPI sur le port {app_port}...")
+    uvicorn.run("app:app", host="0.0.0.0", port=app_port, reload=True)
+    # else:
+    #     logger.error("Impossible de démarrer l'application en raison d'erreurs d'initialisation.")
+    #     sys.exit(1)
